@@ -32,7 +32,7 @@ include __DIR__ . '/includes/initial.php';
 ?>
 
 
-<h1 class="text-center">Benvenuto! Esplora i nostri utenti:</h1>
+<h1 class="text-center">Cerca il tuo prossimo libro preferito</h1>
 
 <form class="row gap-3">
     <div class="col">
@@ -45,7 +45,7 @@ include __DIR__ . '/includes/initial.php';
 
 
 
-<!-- INIZIO FOREACH PER LE CARD  -->
+<!-- Cards -->
 
 <div class="row justify-content-center"><?php
 foreach ($books as $row) { ?>

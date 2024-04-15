@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $autore = $_POST['autore'];
     $anno_pubblicazione = $_POST['anno_pubblicazione'];
     $genere = $_POST['genere'];
-    $cover = $_POST['cover'];
+
 
 
     $errors = [];
@@ -33,13 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($errors == []) {
 
-        $stmt = $pdo->prepare("INSERT INTO libri (titolo, autore, anno_pubblicazione, genere, cover) VALUES (:titolo, :autore, :anno_pubblicazione, :genere,)");
+        $stmt = $pdo->prepare("INSERT INTO libri (titolo, autore, anno_pubblicazione, genere) VALUES (:titolo, :autore, :anno_pubblicazione, :genere)");
         $stmt->execute([
             "titolo" => $titolo,
             "autore" => $autore,
             "anno_pubblicazione" => $anno_pubblicazione,
             "genere" => $genere,
-            ,
+
         ]);
 
 
@@ -60,24 +60,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="d-flex justify-content-center mx-auto mt-4">
     <form style="width: 500px" action="" method="post">
         <div class="mb-3">
-            <label for="titolo" class="form-label">Titolo libro</label>
+            <label for="titolo" class="form-label">Titolo</label>
             <input type="text" class="form-control" name="titolo" id="titolo" />
         </div>
         <div class="mb-3">
-            <label for="autore" class="form-label">Autore del libro</label>
+            <label for="autore" class="form-label">Autore</label>
             <input type="text" class="form-control" name="autore" id="autore" />
         </div>
         <div class="mb-3">
-            <label for="anno_pubblicazione" class="form-label">Anno di uscita</label>
+            <label for="anno_pubblicazione" class="form-label">Anno pubblicazione</label>
             <input type="number" class="form-control" name="anno_pubblicazione" id="anno_pubblicazione" />
         </div>
         <div class="mb-3">
-            <label for="genere" class="form-label">Genere del libro</label>
+            <label for="genere" class="form-label">Genere</label>
             <input type="text" class="form-control" name="genere" id="genere" />
-        </div>
-        <div class="mb-3">
-            <label for="genere" class="form-label">URL immagine di copertina</label>
-            <input type="text" class="form-control" name="cover" id="cover" />
         </div>
 
 
